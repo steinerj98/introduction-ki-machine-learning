@@ -13,19 +13,19 @@
 ##########################
 
 
-# Zunächst müssen Sie in R den Pfad für den Ordner setzen, in dem Ihre Daten
+# Zunï¿½chst mï¿½ssen Sie in R den Pfad fï¿½r den Ordner setzen, in dem Ihre Daten
 # gespeichert sind.
 
 # Bei mir lautet der Pfad in Windows:
 #     C:\Users\rHable\Nextcloud\THD-Robert\Lehre\Daten\Einfuehrung-KI
-# Entsprechend muss ich den Pfad in R folgendermaßen setzen:
+# Entsprechend muss ich den Pfad in R folgendermaï¿½en setzen:
 
-  setwd("C:/Users/rHable/Nextcloud/THD-Robert/Lehre/Daten/Einfuehrung-KI")
+  setwd("/home/steinerj/Documents/Bachelory-Study/Artificial Intelligence/AI/introduction-ki-machine-learning/data")
 
 
-# Nach der Kontrolle der csv-Datei können die Daten einlesen werden
-# Der Befehl zum Einlesen der Daten hängt von der Gestalt der csv-Datei ab:
-# Beachten Sie hierzu die Schritt-für-Schritt-Anleitung im Skript!!!
+# Nach der Kontrolle der csv-Datei kï¿½nnen die Daten einlesen werden
+# Der Befehl zum Einlesen der Daten hï¿½ngt von der Gestalt der csv-Datei ab:
+# Beachten Sie hierzu die Schritt-fï¿½r-Schritt-Anleitung im Skript!!!
 
   Daten <- read.csv("Koerpergewicht.csv",header=TRUE,sep=";",fill=TRUE)
 
@@ -33,20 +33,20 @@
 
   Daten
 
-# Möchte man sich nur den Eintrag in der 5. Zeile und der 3. Spalte
+# Mï¿½chte man sich nur den Eintrag in der 5. Zeile und der 3. Spalte
 # ausgeben lassen, dann geht das mit
 
   Daten[5,3]
   
-# Möchte man sich nur die gesamte 2. Zeile ausgeben lassen, dann:
+# Mï¿½chte man sich nur die gesamte 2. Zeile ausgeben lassen, dann:
 
   Daten[2,]
 
-# Möchte man sich die ersten 13 Zeilen ausgeben lassen, dann:
+# Mï¿½chte man sich die ersten 13 Zeilen ausgeben lassen, dann:
 
   Daten[1:13,]
 
-# Möchte man sich nur die gesamte 2. Spalte ausgeben lassen, dann:
+# Mï¿½chte man sich nur die gesamte 2. Spalte ausgeben lassen, dann:
 
   Daten[,2]
 
@@ -68,17 +68,17 @@
 # nominalskalierte Daten (factor) und
 # metrische Daten (numeric)
 
-# Enthält eine Spalte Zahlen, dann werden die Daten dieser Spalte
+# Enthï¿½lt eine Spalte Zahlen, dann werden die Daten dieser Spalte
 # als metrisch (numeric) eingelesen. Handelt es sich bei diesen Zahlen
 # aber um keine "echten" Zahlen, sondern um Codierungen 
-# (z.B. 0 für männlich, 1 für weiblich)
-# dann müssen wir den Datentyp ändern, also von numeric auf factor
+# (z.B. 0 fï¿½r mï¿½nnlich, 1 fï¿½r weiblich)
+# dann mï¿½ssen wir den Datentyp ï¿½ndern, also von numeric auf factor
 
 # Machen wir das am Beispiel der Spalte Alter:
 
   Daten[,"Alter"] <- as.factor(Daten[,"Alter"])
 
-# Auf dem ersten Blick hat sich an den Daten nichts geändert:
+# Auf dem ersten Blick hat sich an den Daten nichts geï¿½ndert:
 
   Daten[1:10,]
   
@@ -92,7 +92,7 @@
   mean(x)
   
 # Weil Alter aber eine metrische Variable ist, war das Umwandeln in factor
-# hier nicht sinnvoll. Deshalb machen wir das rückgängig, indem wir die Daten 
+# hier nicht sinnvoll. Deshalb machen wir das rï¿½ckgï¿½ngig, indem wir die Daten 
 # nochmal neu einlesen. 
 
   Daten <- read.csv("Koerpergewicht.csv",header=TRUE,sep=";",fill=TRUE)
@@ -107,11 +107,11 @@
 
 
 ###############################################################
-# Beispiel für Daten mit deutscher Dezimalschreibweise
+# Beispiel fï¿½r Daten mit deutscher Dezimalschreibweise
 ##############
 
-# Der Datensatz Koerpergewicht_2.csv enthält Daten mit deutscher 
-# Dezmalschreibweise. Die Daten müssen daher mit dem Befehl read.csv2
+# Der Datensatz Koerpergewicht_2.csv enthï¿½lt Daten mit deutscher 
+# Dezmalschreibweise. Die Daten mï¿½ssen daher mit dem Befehl read.csv2
 # eingelesen werden. Sehen wir, was passiert, wenn wir dies nicht beachten:
 
   Daten <- read.csv("Koerpergewicht_2.csv",header=TRUE,sep=";",fill=TRUE)
@@ -124,12 +124,12 @@
 
   summary(Daten)
 
-# Und Berechnungen mit den Daten sind unmöglich
+# Und Berechnungen mit den Daten sind unmï¿½glich
 
   x <- Daten[,"Groesse"]
   mean(x)
 
-# Die Daten müssen neu eingelesen werden.
+# Die Daten mï¿½ssen neu eingelesen werden.
 # Nun korrekt mit read.csv2:
 
   Daten <- read.csv2("Koerpergewicht_2.csv",header=TRUE,sep=";",fill=TRUE)
@@ -199,17 +199,17 @@
   
 # Malen von Punktewolken mit Grafikoptionen
 
-  plot(x,y,main="Meine selbstgewählte Überschrift",xlab="Größe",ylab="Gewicht",col="blue",pch=19)
+  plot(x,y,main="Meine selbstgewï¿½hlte ï¿½berschrift",xlab="Grï¿½ï¿½e",ylab="Gewicht",col="blue",pch=19)
   
-  # main: text der Bildüberschrift
+  # main: text der Bildï¿½berschrift
   # xlab und ylab: Achsenbeschriftung
   # col: Farbe der Punkte (englischer Farbname)
-  # pch: Ändern des Stils, in dem Punkte gemalt werden (eine Zahl)
+  # pch: ï¿½ndern des Stils, in dem Punkte gemalt werden (eine Zahl)
   
    
 # Malen von Punktewolken mit Achsenskalierung
 
-  plot(x,y,main="Meine selbstgewählte Überschrift",xlim=c(1.5,2),ylim=c(50,100))
+  plot(x,y,main="Meine selbstgewï¿½hlte ï¿½berschrift",xlim=c(1.5,2),ylim=c(50,100))
   
   # xlim: die Grenzen der x-Achse, hier 1.5 (linke Grenze) und 2 (rechte Grenze)
   # ylim: die Grenzen der y-Achse, hier 50 (untere Grenze) und 100 (obere Grenze)
