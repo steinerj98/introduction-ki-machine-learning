@@ -14,8 +14,8 @@
 
   # Setzen des Pfades und Einlesen der Beispiel-Daten
 
-    setwd("C:/Users/rHable/Nextcloud/THD-Robert/Lehre/Daten/Einfuehrung-KI")
-    Daten <- read.csv("Patientendaten.csv",header=TRUE,sep=";",fill=TRUE)
+    setwd("/home/steinerj/Documents/Bachelory-Study/Artificial Intelligence/AI/introduction-ki-machine-learning/data")
+    Daten <- read.csv("Patientendaten.csv",header=TRUE,sep=",",fill=TRUE)
     Daten[1:10,]
 
   # Kontrolle der Datentypen durch Ausgabe der Summary
@@ -25,6 +25,8 @@
   # Umwandlung und Kontrolle der Datentypen sowie Ausgabe der Summary
 
     Daten[,"Krankheit"] <- as.factor(Daten[,"Krankheit"])
+    Daten[,"Geschlecht"] <- as.factor(Daten[,"Geschlecht"])
+    Daten[,"Raucher"] <- as.factor(Daten[,"Raucher"])
     summary(Daten)
       
   # Berechnung der Klassifikation (Logistische Regression)   
@@ -41,7 +43,7 @@
     Prognosefehler
     
   # Berechnung von Prognosen:
-  # Wahrscheinlichkeit einer Erkrankung bei Patienten: männlich, starker Raucher, BMI von 22:
+  # Wahrscheinlichkeit einer Erkrankung bei Patienten: mï¿½nnlich, starker Raucher, BMI von 22:
   
     z <- -3.1092 - 0.1453 + 0.2016*22 
     exp(z)/(1+exp(z))

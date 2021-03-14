@@ -1,29 +1,29 @@
 
 
 #################################################################
-# Maschinelles Lernen mit Entscheidungsbäumen
+# Maschinelles Lernen mit Entscheidungsbï¿½umen
 #################################################################
 # von Dr. habil. Robert Hable, Technische Hochschule Deggendorf
 #################################################################
 
 
-# Für maschinelles Lernen muss erst ein Zusatzpaket in R installiert werden
+# Fï¿½r maschinelles Lernen muss erst ein Zusatzpaket in R installiert werden
 # Wir verwenden im folgenden das Paket "tree"
 # Pakete muss man (einmalig) mit folgendem Befehl installieren
-# (Internetverbindung nötig!):
+# (Internetverbindung nï¿½tig!):
 
 # install.packages("tree")
 
 # Damit wird das Paket auf dem eigenen Computer installiert. Immer wenn
 # man das Paket verwenden will, muss man es aber in der aktuellen
-# R-Sitzung aus der Bibliothek laden. Das geht folgendermaßen:
+# R-Sitzung aus der Bibliothek laden. Das geht folgendermaï¿½en:
 
   library(tree)
 
 
 
 ######################################
-# Regression mit Entscheidungsbäumen
+# Regression mit Entscheidungsbï¿½umen
 #############
 
 
@@ -33,7 +33,7 @@
 
   # Setzen des Pfades und Einlesen der Beispiel-Daten
 
-    setwd("C:/Users/rHable/Nextcloud/THD-Robert/Lehre/Daten/Einfuehrung-KI")
+    setwd("/home/steinerj/Documents/Bachelory-Study/Artificial Intelligence/AI/introduction-ki-machine-learning/data")
     Daten <- read.csv("autos.csv",header=TRUE,sep=",",fill=TRUE)
     Daten[1:10,]
 
@@ -67,7 +67,7 @@
 
   # Berechnen von Prognosen
 
-    # Berechnung der Prognosen für die Personen aus dem Datensatz:
+    # Berechnung der Prognosen fï¿½r die Personen aus dem Datensatz:
     
       # Auswahl aller Input-Variablen und Speicherung unter 'X'
         X <- Daten[,c("Zylinder","Hubraum","Leistung","Gewicht","Beschleunigung","Baujahr","Herkunft")]
@@ -75,9 +75,9 @@
       # Berechnung der Prognoseergebnisse:
         predict(model,X)
       
-    # Berechnung einer Prognose für einen neuen Datenpunkt
+    # Berechnung einer Prognose fï¿½r einen neuen Datenpunkt
     
-      # Hinzufügen eines neuen Datenpunkts 
+      # Hinzufï¿½gen eines neuen Datenpunkts 
         x.neu <- data.frame(4,200,120,1500,17,1975,2)
         names(x.neu) <- names(X)
         X <- rbind(X,x.neu)
@@ -94,7 +94,7 @@
   # Anzahl der Daten
     length(Daten[,1])
   # Da es 391 Datenpunkte sind, werden bei einer (70% zu 30% Aufteilung)
-  # 274 Datenpunkte als Trainingsdaten gewählt und die restlichen Datenpunkte als
+  # 274 Datenpunkte als Trainingsdaten gewï¿½hlt und die restlichen Datenpunkte als
   # Testdaten
     Daten.train <- Daten[1:274,]
     Daten.test <- Daten[275:391,]
@@ -127,7 +127,7 @@
 
 
 ######################################
-# Klassifikation mit Entscheidungsbäumen
+# Klassifikation mit Entscheidungsbï¿½umen
 #############
 
     setwd("C:/Users/rHable/Nextcloud/THD-Robert/Lehre/Daten/Einfuehrung-KI")
@@ -138,7 +138,7 @@
   Daten[1:10,]
 
 
-# Kontrolle der Datentypen über den summary-Befehl
+# Kontrolle der Datentypen ï¿½ber den summary-Befehl
 
   summary(Daten)
   
@@ -146,7 +146,7 @@
   
   summary(Daten)
 
-  # Berechnung des Modells mit ausgewählten Einflussvariablen
+  # Berechnung des Modells mit ausgewï¿½hlten Einflussvariablen
 
     Baum <- tree(V21 ~ V2 + V3 + V4 + V5, data=Daten)
     tuning <- cv.tree(Baum, K=10)
@@ -164,7 +164,7 @@
 
   # Berechnen von Prognosen
 
-    # Berechnung der Prognosen für die Personen aus dem Datensatz:
+    # Berechnung der Prognosen fï¿½r die Personen aus dem Datensatz:
     
       # Auswahl aller Input-Variablen und Speicherung unter 'X'
         X <- Daten[,c("V2","V3","V4","V5")]
@@ -173,7 +173,7 @@
         predict(model,X)
 
 
-  # Berechnung der Prognosegüte:
+  # Berechnung der Prognosegï¿½te:
   
     A <- matrix(0,ncol=2,nrow=2)
     colnames(A) <- c("Real: positiv", "Real: negativ") 
